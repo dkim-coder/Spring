@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.ssafy.ws.dao.BookDao;
-import com.ssafy.ws.dao.BookDaoImpl;
+
 import com.ssafy.ws.dto.Book;
 
 @Service
@@ -19,15 +19,15 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public int insert(Book book) throws SQLException {
+	public void insert(Book book) throws SQLException {
 		// TODO Auto-generated method stub
-		return dao.insert(book);
+		dao.insert(book);
 	}
 
 	@Override
-	public int update(Book book) throws SQLException {
+	public void update(Book book) throws SQLException {
 		// TODO Auto-generated method stub
-		return dao.update(book);
+		dao.update(book);
 	}
 
 	@Override

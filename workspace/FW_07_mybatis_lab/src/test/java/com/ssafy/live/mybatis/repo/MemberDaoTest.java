@@ -3,6 +3,7 @@ package com.ssafy.live.mybatis.repo;
 import java.lang.reflect.Proxy;
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,8 @@ import com.ssafy.live.model.dto.Member;
 import com.ssafy.live.model.dto.SearchCondition;
 
 @SpringBootTest
-
+@Slf4j
+@Transactional  // test가 끝나면 rollback
 public class MemberDaoTest {
 
     @Autowired
@@ -23,7 +25,10 @@ public class MemberDaoTest {
     @Test
     public void insertTest() {
         // TODO: 03-3. MemberDao의 insert를 테스트해보자.
-
+        log.debug("mdao: {}", mDao);
+        Member member = Member.builder().email("abc1@def.net").name("hong").password("1234").build();
+        int result = mDao.insert(member);
+        Assertions.assertEquals(1, result);
         // END
     }
 

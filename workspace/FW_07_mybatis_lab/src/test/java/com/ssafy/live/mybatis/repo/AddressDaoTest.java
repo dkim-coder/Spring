@@ -27,9 +27,9 @@ public class AddressDaoTest {
     @Test
     // TODO: 06-4. Address에 대한 select를 작성 후 테스트 해보세요.
     public void selectTest() {
-        int ano = 1;
-        Address address = aDao.select(ano);
-        Assertions.assertEquals("멀티캠퍼스", address.getDetailAddress());
+        int ano = 1;    // setDetail_address
+        Address address = aDao.select(ano);     // resultMap 사용 안하면 DB의 컬럼명으로 들어오게 되어 있음
+        Assertions.assertEquals("멀티캠퍼스", address.getDetailAddress());   // 따라서, 여기서 맞는 속성을 찾지 못해 null이 나옴
     }
 
     // TODO: 08-2. Address에 대한 selectDetail를 작성 후 테스트 해보세요.

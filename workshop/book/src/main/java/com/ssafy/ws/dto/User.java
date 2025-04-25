@@ -19,8 +19,8 @@ public class User {
 	private String recId;
 	
    @Builder
-	public User(String email, String name, String pass) {
-		this(email, name, pass, null);
+	public User(String email, String name, String password) {
+		this(email, name, password, null);
 	}
 
 	

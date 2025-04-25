@@ -1,14 +1,21 @@
 package com.ssafy.ws.service;
 
+import com.ssafy.ws.dto.Movie;
+
 import java.sql.SQLException;
 import java.util.List;
 
-import com.ssafy.ws.dto.Movie;
-
 public interface MovieService {
-	List<Movie> selectAllMovies() throws SQLException;
 
-	boolean insertMovie(Movie movie) throws SQLException;
+    int insert(Movie movie) throws SQLException;
 
-	int movieCount() throws SQLException;
+    int update(Movie movie) throws SQLException;
+
+    void delete(int id) throws SQLException;
+
+    Movie findById(int id) throws SQLException;
+
+    List<Movie> select() throws SQLException;
+
+    int getMovieCount() throws SQLException;
 }

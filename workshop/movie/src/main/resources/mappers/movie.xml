@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.ws.dao.MovieDao">
+    <insert id="insert" parameterType="Movie">
+        INSERT INTO movies (id, title, director, genre, runningTime)
+        VALUES(#{id}, #{title}, #{director},#{genre},#{runningTime})
+    </insert>
+
+    <update id="update" parameterType="Movie">
+        UPDATE movies SET title=#{title}, director=#{director}, genre=#{genre}, runningTime=#{runningTime}
+        WHERE id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM movies
+        WHERE id=#{id}
+    </delete>
+
+    <select id="findById" parameterType="int" resultType="Movie">
+        SELECT id, title, director, genre, runningTime
+        FROM movies
+        WHERE id=#{id}
+    </select>
+
+    <select id="select" resultType="Movie">
+        SELECT id, title, director, genre, runningTime
+        FROM movies
+    </select>
+
+    <select id="movieCount" resultType="int">
+        SELECT COUNT(*)
+        FROM movies
+    </select>
+
+
+</mapper>

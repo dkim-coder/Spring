@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.springframework.stereotype.Component;
 
 @Component
 public class DBUtil {

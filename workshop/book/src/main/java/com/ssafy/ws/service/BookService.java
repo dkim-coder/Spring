@@ -10,17 +10,16 @@ public interface BookService {
 	/**
 	 * Book 정보 DB 저장
 	 * @param book :Book
-	 * @return int : row
 	 * @throws SQLException
 	 */
-	int insert(Book book) throws SQLException;
+	void insert(Book book) throws SQLException;
 	/**
 	 * 도서정보 수정
 	 * @param book
 	 * @return
 	 * @throws SQLException
 	 */
-	int update(Book book) throws SQLException;
+	void update(Book book) throws SQLException;
 	
 	/**
 	 * 도서 삭제

@@ -6,7 +6,6 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import com.ssafy.ws.dao.UserDao;
-import com.ssafy.ws.dao.UserDaoImpl;
 import com.ssafy.ws.dto.User;
 
 @Service
