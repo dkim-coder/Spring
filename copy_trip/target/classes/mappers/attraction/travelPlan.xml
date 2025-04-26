@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--ITravelPlanDAO mybatis-->
+<mapper namespace="com.ssafy.live.model.dao.attraction.ITravelPlanDAO">
+
+    <resultMap type="TravelPlan" id="travelPlanResultMap">
+        <id property="userNo" column="user_no"/>
+        <result property="plans" column="plans"/>
+    </resultMap>
+
+    <insert id="addTravelPlan" parameterType="TravelPlan">
+        INSERT INTO preferred_plan (user_no, plans)
+        VALUES (#{userNo}, #{plans})
+    </insert>
+
+    <update id="updateTravelPlan" parameterType="TravelPlan">
+        UPDATE preferred_plan
+        SET plans = #{plans}
+        WHERE user_no = #{userNo}
+    </update>
+
+    <delete id="deleteTravelPlan" parameterType="int">
+        DELETE FROM preferred_plan
+        WHERE user_no = #{userNo}
+    </delete>
+
+    <select id="getTravelPlanByUser" parameterType="int" resultMap="travelPlanResultMap">
+        SELECT *
+        FROM preferred_plan
+        WHERE user_no = #{userNo}
+    </select>
+
+
+</mapper>

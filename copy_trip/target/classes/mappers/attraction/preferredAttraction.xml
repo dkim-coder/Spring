@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--IPreferredAttractionDAO mybatis-->
+<mapper namespace="com.ssafy.live.model.dao.attraction.IPreferredAttractionDAO">
+
+    <resultMap type="PreferredAttraction" id="preferredAttractionTypeResultMap">
+        <result property="userNo" column="user_no"/>
+        <result property="attractionsNo" column="attractions_no"/>
+    </resultMap>
+
+    <insert id="addPreferredAttraction" parameterType="PreferredAttraction">
+        INSERT INTO preferred_attraction (user_no, attractions_no)
+        VALUES (#{userNo}, #{attractionsNo})
+    </insert>
+
+    <delete id="deletePreferredAttraction">
+        DELETE FROM preferred_attraction
+        WHERE user_no = #{userNo} AND attractions_no = #{attractionsNo}
+    </delete>
+
+    <select id="getPreferredAttractionsByUser" parameterType="int" resultType="int"
+            resultMap="preferredAttractionTypeResultMap">
+        SELECT attractions_no
+        FROM preferred_attraction
+        WHERE user_no = #{userNo}
+    </select>
+
+
+</mapper>

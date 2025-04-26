@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--IGugunDAO mybatis-->
+<mapper namespace="com.ssafy.model.dao.address.IGugunDAO">
+    <resultMap id="sidoResultMap" type="gugunResultMap">
+        <id property="no" column="no"/>
+        <result property="sidoCode" column="sido_code"/>
+        <result property="gugunCode" column="gugun_code"/>
+        <result property="gugunName" column="gugun_name"/>
+    </resultMap>
+
+    <select id="getAllGuguns" resultType="Gugun" resultMap="gugunResultMap">
+        SELECT no, sido, gugun_code, gugun_name
+        FROM guguns
+    </select>
+
+    <select id="getGugunBySido" parameterType="int" resultType="Gugun" resultMap="gugunResultMap">
+        SELECT *
+        FROM guguns
+        WHERE sido_code = #{sidoCode}
+    </select>
+
+</mapper>
+
